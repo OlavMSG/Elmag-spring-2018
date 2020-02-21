@@ -20,8 +20,9 @@ newparams = {'axes.titlesize': fontsize, 'axes.labelsize': fontsize,
 plt.rcParams.update(newparams)
 
 #Les inn fil
-theta, ye = np.loadtxt('sinus.dat', unpack=True,  delimiter=' ,')
+theta, ye = np.loadtxt('theta.txt', unpack=True,  delimiter=' ,')
  #x-verdier eksprimentell
+theta = np.radians(theta)
  #y-verdier eksprimetell
 sintheta = np.sin(theta)
 
@@ -44,7 +45,7 @@ plt.xlabel('$theta$')
 plt.ylabel('$y$')
 plt.title('RegSin')
 plt.legend(loc='upper left');
-#plt.savefig('SinReg.pdf')
+#plt.savefig('theta.pdf')
 
 plt.figure(2) # andre figur
 plt.plot(sintheta, ye , 'rx', label='(sinthetai,yi)', alpha=0.5)  # plottter sintheta mot ye i røde kryss
@@ -54,7 +55,7 @@ plt.xlabel('$sintheta$')
 plt.ylabel('$y$')
 plt.title('sintheta mot y')
 plt.legend(loc='upper left');
-#plt.savefig('SinRegLin.pdf')
+#plt.savefig('SinthetaRegLin.pdf')
 
 plt.figure(3) # trede figur
 plt.plot(sintheta, Dy, 'rx', label='(sinthetai,Dyi)', alpha=0.5)              # plottter sintheta mot Dy i røde kryss
@@ -64,6 +65,6 @@ plt.xlabel('$sintheta$')
 plt.ylabel('$Dy$')
 plt.title('sintheta mot Dy')
 plt.legend(loc='upper left');
-#plt.savefig('SinRegLinDy.pdf')
+#plt.savefig('SinthetaRegLinDM.pdf')
 
 plt.show()
